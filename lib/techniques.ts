@@ -40,6 +40,8 @@ export type HeroTechnique = {
   creativeReasoning: string;
   /** Planned / in-progress customizations vs the community clone */
   modifications: string;
+  /** Community Technique URLs used as customization bases */
+  cloneBases: string[];
   /** Public View / app link — fill after publishing */
   viewLink: string | null;
   /** Estimated USD per run; live mode overrides from API */
@@ -64,6 +66,11 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
       'Scaffold IP and pitch worlds the way Lore Machine broke narrative into controllable multimedia steps — language first, then visual system, then frames.',
     modifications:
       'Planned: tighter character/environment branches, museum-legible tone locks, cost-aware frame counts, clearer I/O naming for Field Kit forms.',
+    cloneBases: [
+      'https://app.flora.ai/techniques/dreamscape',
+      'https://app.flora.ai/techniques/character-lock',
+      'https://app.flora.ai/techniques/video-scene-builder',
+    ],
     viewLink: null,
     runCostUsd: 0.12,
     status: 'placeholder',
@@ -108,6 +115,10 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
       'Preserve creative intent while packing formats — campaign systems customers can reuse, not disposable moodboards.',
     modifications:
       'Planned: brand-safe variation constraints, channel presets (1:1 / 16:9 / OOH), human review gates before the next chain step.',
+    cloneBases: [
+      'https://app.flora.ai/techniques/illustration-branding-design',
+      'https://app.flora.ai/techniques/material-3d-logo-render-engine',
+    ],
     viewLink: null,
     runCostUsd: 0.18,
     status: 'placeholder',
@@ -148,6 +159,10 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
       'Installation previz from Digilab / Bakehouse practice — materials, lighting, and spatial views before fabrication spend.',
     modifications:
       'Planned: venue constraint checklist, production annotation layer, lobby-screen 16:9 export for stakeholder review.',
+    cloneBases: [
+      'https://app.flora.ai/techniques/wireframe',
+      'https://app.flora.ai/techniques/material-3d-logo-render-engine',
+    ],
     viewLink: null,
     runCostUsd: 0.22,
     status: 'placeholder',

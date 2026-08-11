@@ -31,6 +31,10 @@ export function FieldKitConsole() {
   const [runStatus, setRunStatus] = useState<'idle' | 'pending' | 'running' | 'completed'>('idle');
   const [modeInfo, setModeInfo] = useState<ModeInfo | null>(null);
   const [pending, startTransition] = useTransition();
+  const [schemaValues, setSchemaValues] = useState<Record<string, string>>({});
+  const [favorites, setFavorites] = useState<Record<string, boolean>>({});
+  const [notes, setNotes] = useState<Record<string, string>>({});
+  const [selectedForChain, setSelectedForChain] = useState<string | null>(null);
 
   useEffect(() => {
     fetch('/api/flora/mode')
@@ -52,12 +56,31 @@ export function FieldKitConsole() {
   function goRecommend() {
     startTransition(() => {
       setCaseStudy(null);
+      setFavorites({});
+      setNotes({});
+      setSelectedForChain(null);
       setStep('techniques');
     });
   }
 
   async function startRun(technique: HeroTechnique) {
     setActiveTechniqueId(technique.id);
+    const seeded: Record<string, string> = {};
+    for (const input of technique.inputs) {
+      if (input.type === 'text') {
+        seeded[input.id] = [
+          brief.objective,
+          brief.audience,
+          brief.visualDirection,
+          brief.constraints,
+        ]
+          .filter(Boolean)
+          .join('\n\n');
+      } else {
+        seeded[input.id] = schemaValues[input.id] || input.description || '';
+      }
+    }
+    setSchemaValues(seeded);
     setStep('run');
     setRunStatus('pending');
     setRunProgress(0);
@@ -71,12 +94,7 @@ export function FieldKitConsole() {
         inputs: technique.inputs.map((input) => ({
           id: input.id,
           type: input.type,
-          value:
-            input.type === 'text'
-              ? [brief.objective, brief.audience, brief.visualDirection, brief.constraints]
-                  .filter(Boolean)
-                  .join('\n\n')
-              : '',
+          value: seeded[input.id] ?? '',
         })),
       }),
     });
@@ -95,7 +113,22 @@ export function FieldKitConsole() {
       setRunProgress(status.progress ?? 0);
       if (status.status === 'completed') {
         setRunStatus('completed');
-        setCaseStudy(buildDemoCaseStudy(brief));
+        const study = buildDemoCaseStudy(brief);
+        setCaseStudy(study);
+        const fav: Record<string, boolean> = {};
+        const noteMap: Record<string, string> = {};
+        let firstSelected: string | null = null;
+        for (const s of study.steps) {
+          for (const output of s.outputs) {
+            const key = `${s.techniqueId}:${output.outputId}`;
+            fav[key] = Boolean(output.favorited);
+            if (output.notes) noteMap[key] = output.notes;
+            if (output.favorited && !firstSelected) firstSelected = key;
+          }
+        }
+        setFavorites(fav);
+        setNotes(noteMap);
+        setSelectedForChain(firstSelected);
         return;
       }
       if (status.status === 'failed') {
@@ -226,6 +259,22 @@ export function FieldKitConsole() {
                     <dd>{technique.modifications}</dd>
                   </div>
                   <div>
+                    <dt>Clone bases</dt>
+                    <dd>
+                      {technique.cloneBases.map((url) => (
+                        <a
+                          key={url}
+                          href={url}
+                          target="_blank"
+                          rel="noreferrer"
+                          style={{ display: 'block', marginBottom: '0.2rem' }}
+                        >
+                          {url.replace('https://app.flora.ai/techniques/', '')}
+                        </a>
+                      ))}
+                    </dd>
+                  </div>
+                  <div>
                     <dt>Inputs</dt>
                     <dd>{technique.inputs.map((i) => i.name).join(' · ')}</dd>
                   </div>
@@ -260,7 +309,7 @@ export function FieldKitConsole() {
           </p>
           <div className="run-layout">
             <div className="run-inputs">
-              <h3>Inputs</h3>
+              <h3>Schema-generated inputs</h3>
               {activeTechnique.inputs.map((input) => (
                 <label key={input.id} className="field">
                   <span>
@@ -270,12 +319,20 @@ export function FieldKitConsole() {
                   </span>
                   {input.type === 'text' ? (
                     <textarea
-                      readOnly
                       rows={4}
-                      value={[brief.objective, brief.visualDirection].join('\n\n')}
+                      value={schemaValues[input.id] ?? ''}
+                      onChange={(e) =>
+                        setSchemaValues((prev) => ({ ...prev, [input.id]: e.target.value }))
+                      }
                     />
                   ) : (
-                    <input readOnly value={input.description ?? 'Upload / URL — wire after schema sync'} />
+                    <input
+                      value={schemaValues[input.id] ?? ''}
+                      placeholder={input.description ?? 'https://… image or video URL'}
+                      onChange={(e) =>
+                        setSchemaValues((prev) => ({ ...prev, [input.id]: e.target.value }))
+                      }
+                    />
                   )}
                 </label>
               ))}
@@ -315,26 +372,62 @@ export function FieldKitConsole() {
         <section className="panel">
           <h2>Creative review</h2>
           <p className="panel__hint">
-            Compare outputs, favorite directions, leave notes, and select which result enters the
-            next Technique in the chain.
+            Favorite directions, leave notes, and select which result should enter the next
+            Technique in the chain.
           </p>
           <div className="review-grid">
             {(caseStudy ?? buildDemoCaseStudy(brief)).steps.flatMap((s) =>
-              s.outputs.map((output) => (
-                <figure key={`${s.techniqueId}-${output.outputId}`} className="review-card">
-                  {output.type === 'imageUrl' ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={output.value} alt={output.name} />
-                  ) : (
-                    <pre>{output.value}</pre>
-                  )}
-                  <figcaption>
-                    <strong>{output.name}</strong>
-                    {output.favorited ? <span className="chip">Selected</span> : null}
-                    {output.notes ? <p>{output.notes}</p> : null}
-                  </figcaption>
-                </figure>
-              )),
+              s.outputs.map((output) => {
+                const key = `${s.techniqueId}:${output.outputId}`;
+                const techniqueName =
+                  HERO_TECHNIQUES.find((t) => t.id === s.techniqueId)?.name ?? s.techniqueId;
+                return (
+                  <figure key={key} className="review-card">
+                    {output.type === 'imageUrl' ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={output.value} alt={output.name} />
+                    ) : (
+                      <pre>{output.value}</pre>
+                    )}
+                    <figcaption>
+                      <strong>
+                        {techniqueName} · {output.name}
+                      </strong>
+                      <div className="actions" style={{ marginTop: '0.5rem' }}>
+                        <button
+                          type="button"
+                          className={favorites[key] ? 'btn btn--primary' : 'btn btn--ghost'}
+                          onClick={() =>
+                            setFavorites((prev) => ({ ...prev, [key]: !prev[key] }))
+                          }
+                        >
+                          {favorites[key] ? 'Favorited' : 'Favorite'}
+                        </button>
+                        <button
+                          type="button"
+                          className={
+                            selectedForChain === key ? 'btn btn--primary' : 'btn btn--ghost'
+                          }
+                          onClick={() => setSelectedForChain(key)}
+                        >
+                          {selectedForChain === key ? 'Selected for chain' : 'Use next'}
+                        </button>
+                      </div>
+                      <label className="field" style={{ marginTop: '0.65rem' }}>
+                        <span>Notes</span>
+                        <textarea
+                          rows={2}
+                          value={notes[key] ?? ''}
+                          onChange={(e) =>
+                            setNotes((prev) => ({ ...prev, [key]: e.target.value }))
+                          }
+                          placeholder="Creative direction notes for the customer…"
+                        />
+                      </label>
+                    </figcaption>
+                  </figure>
+                );
+              }),
             )}
           </div>
           <div className="actions">
@@ -376,8 +469,8 @@ export function FieldKitConsole() {
                     </dd>
                   </div>
                   <div>
-                    <dt>Selected direction</dt>
-                    <dd>{study.selectedDirection}</dd>
+                    <dt>Selected for next Technique</dt>
+                    <dd>{selectedForChain ?? study.selectedDirection}</dd>
                   </div>
                   <div>
                     <dt>Creative reasoning</dt>

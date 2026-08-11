@@ -19,7 +19,7 @@ This repo is the **fourth application artifact** for FLORA Forward Deployed Crea
 
 ## Status gates
 
-- [ ] Clone ~6–10 community Techniques and classify them — see [`techniques.md`](techniques.md)
+- [x] Clone ~6–10 community Techniques and classify them — see [`techniques.md`](techniques.md)
 - [ ] Customize three hero Techniques (prompts, branches, I/O, docs)
 - [ ] Publish View Links; set slugs in `lib/techniques.ts`
 - [ ] Wire live schema-driven forms from Technique `inputs`
