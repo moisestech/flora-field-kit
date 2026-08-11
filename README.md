@@ -58,6 +58,7 @@ Clone ~6–10 Techniques in FLORA, customize three, then wire slugs here. See [`
 
 - [`docs/architecture.md`](docs/architecture.md) — brief → run → report
 - [`docs/application.md`](docs/application.md) — FDC application mapping
+- [`docs/techniques.md`](docs/techniques.md) — clone intake + slug wiring checklist
 
 ## License
 

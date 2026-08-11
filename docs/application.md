@@ -19,12 +19,12 @@ This repo is the **fourth application artifact** for FLORA Forward Deployed Crea
 
 ## Status gates
 
-- [ ] Clone ~6–10 community Techniques and classify them  
-- [ ] Customize three hero Techniques (prompts, branches, I/O, docs)  
-- [ ] Publish View Links; set slugs in `lib/techniques.ts`  
-- [ ] Wire live schema-driven forms from Technique `inputs`  
-- [ ] Record 60–90s demo  
-- [ ] Add outbound links from the private moises.tech opportunity dossier  
+- [ ] Clone ~6–10 community Techniques and classify them — see [`techniques.md`](techniques.md)
+- [ ] Customize three hero Techniques (prompts, branches, I/O, docs)
+- [ ] Publish View Links; set slugs in `lib/techniques.ts`
+- [ ] Wire live schema-driven forms from Technique `inputs`
+- [ ] Record 60–90s demo
+- [x] Thin outbound links from the private moises.tech opportunity dossier (`/opportunities/flora-forward-deployed-creative`)
 
 Until Techniques are published, the app runs in **demo mode** with fixtures.
 
