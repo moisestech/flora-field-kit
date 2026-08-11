@@ -5,7 +5,7 @@ This repo is the **fourth application artifact** for FLORA Forward Deployed Crea
 1. Narrative World Builder — FLORA View Link  
 2. Campaign Variation System — FLORA View Link  
 3. Physical Experience Previsualizer — FLORA View Link  
-4. **Field Kit** — this coded console ([live](https://flora-field-kit.vercel.app) · [source](https://github.com/moisestech/flora-field-kit))
+4. **Field Kit** — this coded console ([live](https://flora-field-kit.moises.tech) · [source](https://github.com/moisestech/flora-field-kit))
 
 ## What FDC work looks like here
 
@@ -24,7 +24,7 @@ This repo is the **fourth application artifact** for FLORA Forward Deployed Crea
 - [ ] Publish View Links; set slugs in `lib/techniques.ts`
 - [ ] Wire live schema-driven forms from Technique `inputs`
 - [ ] Record 60–90s demo
-- [x] Thin outbound links from the private moises.tech opportunity dossier (`/opportunities/flora-forward-deployed-creative`)
+- [x] Role-portfolio outbound links from the private moises.tech opportunity dossier (`/opportunities/flora-forward-deployed-creative`)
 
 Until Techniques are published, the app runs in **demo mode** with fixtures.
 

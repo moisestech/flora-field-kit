@@ -2,7 +2,12 @@
 
 Field Kit is **paused on real FLORA Techniques** until you clone and customize them.
 
-The console already runs end-to-end in **demo mode** using placeholders in [`lib/techniques.ts`](../lib/techniques.ts).
+The console already runs end-to-end in **demo mode** using placeholders in [`lib/techniques.ts`](../lib/techniques.ts). Each hero entry already carries:
+
+- inputs / outputs
+- creative reasoning
+- planned modifications
+- `viewLink` / `slug` (null until publish)
 
 ## Your next steps in FLORA
 
@@ -37,3 +42,7 @@ The console already runs end-to-end in **demo mode** using placeholders in [`lib
 | 10 | | | |
 
 API key: put only in `.env.local` as `FLORA_API_KEY`. Never commit or paste in chat.
+
+## Application dossier
+
+Outbound narrative lives on moises.tech at `/opportunities/flora-forward-deployed-creative` and links here — do not move app code into the website repo.

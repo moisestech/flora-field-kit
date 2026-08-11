@@ -7,6 +7,7 @@
  * it does not author them.
  *
  * @see docs/architecture.md
+ * @see docs/techniques.md
  */
 
 export type TechniqueInputType = 'text' | 'imageUrl' | 'videoUrl';
@@ -35,6 +36,10 @@ export type HeroTechnique = {
   bestUseCase: string;
   /** Background connection for the FDC application narrative */
   backgroundConnection: string;
+  /** Why this Technique shape fits the customer brief */
+  creativeReasoning: string;
+  /** Planned / in-progress customizations vs the community clone */
+  modifications: string;
   /** Public View / app link — fill after publishing */
   viewLink: string | null;
   /** Estimated USD per run; live mode overrides from API */
@@ -55,6 +60,10 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
       'Story breakdown, visual language, characters, environments, and storyboard frames from a creative brief.',
     bestUseCase: 'IP development, pitch worlds, series / campaign narrative scaffolding',
     backgroundConnection: 'Lore Machine — generative storytelling systems',
+    creativeReasoning:
+      'Scaffold IP and pitch worlds the way Lore Machine broke narrative into controllable multimedia steps — language first, then visual system, then frames.',
+    modifications:
+      'Planned: tighter character/environment branches, museum-legible tone locks, cost-aware frame counts, clearer I/O naming for Field Kit forms.',
     viewLink: null,
     runCostUsd: 0.12,
     status: 'placeholder',
@@ -95,6 +104,10 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
       'Controlled brand variations across formats and audiences from an approved visual direction.',
     bestUseCase: 'Campaign systems, format packs, audience-specific adaptations',
     backgroundConnection: 'Creative direction and AI production pipelines',
+    creativeReasoning:
+      'Preserve creative intent while packing formats — campaign systems customers can reuse, not disposable moodboards.',
+    modifications:
+      'Planned: brand-safe variation constraints, channel presets (1:1 / 16:9 / OOH), human review gates before the next chain step.',
     viewLink: null,
     runCostUsd: 0.18,
     status: 'placeholder',
@@ -131,6 +144,10 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
       'Artwork/object, venue, materials, spatial views, motion test, and production board for installation work.',
     bestUseCase: 'Exhibition and installation previsualization',
     backgroundConnection: 'Oolite, Bakehouse, and installation practice',
+    creativeReasoning:
+      'Installation previz from Digilab / Bakehouse practice — materials, lighting, and spatial views before fabrication spend.',
+    modifications:
+      'Planned: venue constraint checklist, production annotation layer, lobby-screen 16:9 export for stakeholder review.',
     viewLink: null,
     runCostUsd: 0.22,
     status: 'placeholder',

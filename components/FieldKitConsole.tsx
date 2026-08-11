@@ -218,6 +218,14 @@ export function FieldKitConsole() {
                     <dd>{technique.backgroundConnection}</dd>
                   </div>
                   <div>
+                    <dt>Creative reasoning</dt>
+                    <dd>{technique.creativeReasoning}</dd>
+                  </div>
+                  <div>
+                    <dt>Modifications</dt>
+                    <dd>{technique.modifications}</dd>
+                  </div>
+                  <div>
                     <dt>Inputs</dt>
                     <dd>{technique.inputs.map((i) => i.name).join(' · ')}</dd>
                   </div>

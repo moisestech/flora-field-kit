@@ -4,7 +4,7 @@
 
 > Turning creative briefs into reusable AI production systems.
 
-Live demo: **[https://flora-field-kit.vercel.app](https://flora-field-kit.vercel.app)**  
+Live demo: **[https://flora-field-kit.moises.tech](https://flora-field-kit.moises.tech)**  
 Source: **[github.com/moisestech/flora-field-kit](https://github.com/moisestech/flora-field-kit)**
 
 This is an independent **Forward Deployed Creative** work sample — not a portfolio site and **not affiliated with or endorsed by FLORA**.
@@ -23,9 +23,9 @@ npm run dev
 # open http://localhost:3000
 ```
 
-Or open the live deploy: [flora-field-kit.vercel.app](https://flora-field-kit.vercel.app)
+Or open the live deploy: [flora-field-kit.moises.tech](https://flora-field-kit.moises.tech)
 
-Demo case study: [`/case/demo-miami-exhibition-teaser`](https://flora-field-kit.vercel.app/case/demo-miami-exhibition-teaser)
+Demo case study: [`/case/demo-miami-exhibition-teaser`](https://flora-field-kit.moises.tech/case/demo-miami-exhibition-teaser)
 
 ## Live mode (optional)
 
