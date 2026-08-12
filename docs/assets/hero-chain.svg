@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Three hero Techniques chain</title>
+  <desc id="desc">Narrative World Builder to Campaign Variation System to Physical Experience Previsualizer</desc>
+  <rect width="1200" height="300" fill="#0c1015"/>
+  <text x="40" y="40" fill="#3dd6c6" font-family="ui-monospace, Menlo, monospace" font-size="12" letter-spacing="2">HERO CHAIN</text>
+  <text x="40" y="72" fill="#e8e2d6" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="600">Three Techniques · one customer brief</text>
+
+  <g font-family="ui-sans-serif, system-ui, sans-serif">
+    <rect x="40" y="110" width="340" height="120" fill="#1e2834" stroke="#3dd6c6" stroke-opacity="0.5"/>
+    <text x="60" y="142" fill="#3dd6c6" font-family="ui-monospace, Menlo, monospace" font-size="11">01</text>
+    <text x="90" y="144" fill="#e8e2d6" font-size="16" font-weight="600">Narrative World Builder</text>
+    <text x="60" y="172" fill="#9aa3ad" font-size="12">dreamscape · character-lock</text>
+    <text x="60" y="194" fill="#9aa3ad" font-size="12">video-scene-builder</text>
+    <text x="60" y="216" fill="#9aa3ad" font-size="12">Story + visual language</text>
+
+    <rect x="430" y="110" width="340" height="120" fill="#1e2834" stroke="#9aa3ad" stroke-opacity="0.35"/>
+    <text x="450" y="142" fill="#3dd6c6" font-family="ui-monospace, Menlo, monospace" font-size="11">02</text>
+    <text x="480" y="144" fill="#e8e2d6" font-size="16" font-weight="600">Campaign Variation System</text>
+    <text x="450" y="172" fill="#9aa3ad" font-size="12">illustration-branding-design</text>
+    <text x="450" y="194" fill="#9aa3ad" font-size="12">material-3d-logo-render-engine</text>
+    <text x="450" y="216" fill="#9aa3ad" font-size="12">Formats + audiences</text>
+
+    <rect x="820" y="110" width="340" height="120" fill="#1e2834" stroke="#9aa3ad" stroke-opacity="0.35"/>
+    <text x="840" y="142" fill="#3dd6c6" font-family="ui-monospace, Menlo, monospace" font-size="11">03</text>
+    <text x="870" y="144" fill="#e8e2d6" font-size="15" font-weight="600">Physical Experience Previsualizer</text>
+    <text x="840" y="172" fill="#9aa3ad" font-size="12">wireframe · material-3d</text>
+    <text x="840" y="194" fill="#9aa3ad" font-size="12">Venue + production board</text>
+    <text x="840" y="216" fill="#9aa3ad" font-size="12">Installation previz</text>
+  </g>
+
+  <g stroke="#3dd6c6" stroke-width="2" fill="none">
+    <path d="M380 170 H422" marker-end="url(#a)"/>
+    <path d="M770 170 H812"/>
+  </g>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#3dd6c6"/>
+    </marker>
+  </defs>
+  <text x="40" y="270" fill="#9aa3ad" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12">Diagram  View Links pending Technique Builder publish. Clone bases listed under each hero.</text>
+</svg>

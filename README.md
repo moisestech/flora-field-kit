@@ -26,6 +26,16 @@ Recruiters and hiring managers should open the **live demo** (no API key) and wa
 
 That loop is the miniature FDC job: understand a customer brief, adapt Techniques, run them programmatically, refine with the team, leave a reusable system.
 
+### Console walkthrough (demo mode)
+
+| Step | Screenshot |
+|------|------------|
+| **1 · Brief** | ![Creative brief intake](docs/assets/screenshots/01-brief-intake.png) |
+| **2 · Techniques** | ![Technique library with three heroes](docs/assets/screenshots/02-technique-library.png) |
+| **3 · Run** | ![Run console completed](docs/assets/screenshots/03-run-console.png) |
+| **4 · Review** | ![Creative review favorites and chain select](docs/assets/screenshots/04-creative-review.png) |
+| **5 · Case study** | ![Shareable case study report](docs/assets/screenshots/05-case-study.png) |
+
 ## Open the demo (no API key)
 
 ```bash
@@ -55,6 +65,8 @@ Demo mode is the default when `FLORA_API_KEY` is missing.
 Details: [`docs/architecture.md`](docs/architecture.md)
 
 ## Three hero Techniques
+
+![Hero Techniques chain diagram](docs/assets/hero-chain.svg)
 
 | Technique | Clone bases (customize these) | Status |
 |-----------|-------------------------------|--------|
@@ -94,17 +106,22 @@ Mapping: [`docs/application.md`](docs/application.md)
 | [`docs/techniques.md`](docs/techniques.md) | Clone intake, ranking, slug wiring |
 | [`docs/media.md`](docs/media.md) | **Images & diagrams inventory** for README / hiring packet |
 
-## Media still needed
+## Media status
 
-See the full checklist in [`docs/media.md`](docs/media.md). Highest-impact next captures:
+S1–S5 screenshots and diagrams D1–D4 are embedded above. Full inventory: [`docs/media.md`](docs/media.md).
 
-| Priority | Asset | Why |
-|----------|-------|-----|
-| 1 | Screenshots S1–S5 (brief → case study) | Recruiter README clarity |
-| 2 | Hero-chain diagram D4 | Shows three Techniques at a glance |
-| 3 | Real Technique View Link stills T1–T3 | After publish — replace concept studies |
+| Priority | Asset | Status |
+|----------|-------|--------|
+| 1 | Real Technique View Link stills T1–T3 | After publish in FLORA |
+| 2 | Optional sequence diagram D5 | Nice-to-have |
+| 3 | 60–90s demo recording | Optional recruiter walkthrough |
 
-SVG diagrams D1–D3 are already embedded above.
+Re-capture screenshots anytime:
+
+```bash
+npm run capture:screenshots
+# requires: npm run dev (default http://localhost:3000)
+```
 
 ## Stack
 
