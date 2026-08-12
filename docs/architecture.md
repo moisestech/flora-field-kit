@@ -36,6 +36,10 @@ The API key never ships to the browser. All FLORA calls go through `app/api/flor
 
 `/case/[id]` renders brief, Techniques used, selections, reasoning, and deliverables. Demo id: `demo-miami-exhibition-teaser`.
 
+## Diagrams
+
+SVG architecture and workflow diagrams for the README live in [`assets/`](assets/). Full media checklist: [`media.md`](media.md).
+
 ## Boundary
 
 This repo is standalone. It does not import moises.tech design systems, auth, or CMS. The website may link here; it must not host this app.

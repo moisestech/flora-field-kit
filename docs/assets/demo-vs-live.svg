@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360" role="img" aria-labelledby="title desc">
+  <title id="title">Demo mode versus live mode</title>
+  <desc id="desc">Recruiters use demo fixtures; developers optionally set FLORA_API_KEY for live runs</desc>
+  <rect width="1000" height="360" fill="#0c1015"/>
+  <text x="40" y="44" fill="#3dd6c6" font-family="ui-monospace, Menlo, monospace" font-size="13" letter-spacing="2">MODES</text>
+  <text x="40" y="78" fill="#e8e2d6" font-family="ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="600">Demo by default · Live when keyed</text>
+
+  <rect x="40" y="120" width="440" height="180" fill="#1e2834" stroke="#d4a017" stroke-opacity="0.55"/>
+  <text x="64" y="156" fill="#d4a017" font-family="ui-monospace, Menlo, monospace" font-size="12">DEMO MODE</text>
+  <text x="64" y="188" fill="#e8e2d6" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="600">No API key required</text>
+  <text x="64" y="220" fill="#9aa3ad" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Deterministic fixtures</text>
+  <text x="64" y="244" fill="#9aa3ad" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Full brief ’ case study loop</text>
+  <text x="64" y="268" fill="#9aa3ad" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">What recruiters should open</text>
+
+  <rect x="520" y="120" width="440" height="180" fill="#1e2834" stroke="#3dd6c6" stroke-opacity="0.55"/>
+  <text x="544" y="156" fill="#3dd6c6" font-family="ui-monospace, Menlo, monospace" font-size="12">LIVE MODE</text>
+  <text x="544" y="188" fill="#e8e2d6" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="600">FLORA_API_KEY set</text>
+  <text x="544" y="220" fill="#9aa3ad" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Server-only SDK calls</text>
+  <text x="544" y="244" fill="#9aa3ad" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Needs published Technique slugs</text>
+  <text x="544" y="268" fill="#9aa3ad" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Force demo: DEMO_MODE=1</text>
+
+  <text x="40" y="340" fill="#9aa3ad" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12">Diagram  never put the API key in the client or in README screenshots.</text>
+</svg>
