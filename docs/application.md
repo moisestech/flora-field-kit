@@ -23,9 +23,12 @@ This repo is the **fourth application artifact** for FLORA Forward Deployed Crea
 - [ ] Customize three hero Techniques (prompts, branches, I/O, docs)
 - [ ] Publish View Links; set slugs in `lib/techniques.ts`
 - [x] Schema-driven forms from Technique `inputs` (demo registry; live schema sync after publish)
-- [ ] Capture README screenshots S1–S5 — see [`media.md`](media.md)
+- [x] Capture README screenshots S1–S5 — see [`media.md`](media.md)
 - [ ] Record 60–90s demo
 - [x] Role-portfolio outbound links from the private moises.tech opportunity dossier (`/opportunities/flora-forward-deployed-creative`)
+- [x] Project FLORA MCP config ([`.cursor/mcp.json`](../.cursor/mcp.json)) — Cursor-side inventory, not the app runtime
+- [x] Connect FLORA MCP (OAuth) — `execute` still needs a paid FLORA plan (`403 paid_plan_required`)
+- [ ] After paid API access + Technique Builder publish: MCP-retrieve heroes; set `slug` / `viewLink` / `status: 'ready'`
 
 Until Techniques are published, the app runs in **demo mode** with fixtures.
 

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState, useTransition } from 'react';
 
 import type { CreativeBrief, DemoCaseStudy } from '@/lib/demo/fixtures';
 import { DEMO_BRIEF, buildDemoCaseStudy, recommendTechniques } from '@/lib/demo/fixtures';
-import { HERO_TECHNIQUES, type HeroTechnique } from '@/lib/techniques';
+import { HERO_TECHNIQUES, formatUsd, type HeroTechnique } from '@/lib/techniques';
 
 type Step = 'brief' | 'techniques' | 'run' | 'review' | 'report';
 
@@ -236,7 +236,9 @@ export function FieldKitConsole() {
                   <span className="chip">Chain {technique.chainOrder}</span>
                   <span className="chip chip--muted">{technique.status}</span>
                   <span className="chip chip--cost">
-                    ~${technique.runCostUsd.toFixed(2)} / run
+                    {technique.runCostUsd == null
+                      ? 'Cost pending retrieve'
+                      : `~${formatUsd(technique.runCostUsd)} / run`}
                   </span>
                 </div>
                 <h3>{technique.name}</h3>
@@ -348,7 +350,9 @@ export function FieldKitConsole() {
                 {runStatus === 'running' && `Running — ${runProgress}%`}
                 {runStatus === 'completed' && 'Completed'}
               </p>
-              <p className="run-status__cost">Est. cost ${activeTechnique.runCostUsd.toFixed(2)}</p>
+              <p className="run-status__cost">
+                Est. cost {formatUsd(activeTechnique.runCostUsd)}
+              </p>
               {runStatus === 'completed' && (
                 <button type="button" className="btn btn--primary" onClick={() => setStep('review')}>
                   Open creative review
@@ -479,10 +483,14 @@ export function FieldKitConsole() {
                   <div>
                     <dt>Total demo cost</dt>
                     <dd>
-                      $
-                      {study.steps
-                        .reduce((sum, s) => sum + s.chargedCost, 0)
-                        .toFixed(2)}
+                    {(() => {
+                      const amounts = study.steps
+                        .map((s) => s.chargedCost)
+                        .filter((n): n is number => n != null);
+                      return amounts.length === study.steps.length
+                        ? formatUsd(amounts.reduce((sum, n) => sum + n, 0))
+                        : 'Pending retrieve';
+                    })()}
                     </dd>
                   </div>
                 </dl>

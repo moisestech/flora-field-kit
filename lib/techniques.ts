@@ -2,9 +2,9 @@
  * Hero Technique registry for Field Kit.
  *
  * STATUS: Placeholders until real FLORA Techniques are cloned and customized.
- * Replace `slug`, `viewLink`, and schema fields after publishing Techniques
- * via FLORA Technique Builder. The API runs finished Techniques by slug —
- * it does not author them.
+ * Clone I/O lives in lib/clone-bases.ts. After Technique Builder publish,
+ * MCP-retrieve each hero and set `slug`, `viewLink`, `status: 'ready'`.
+ * The API runs finished Techniques by slug — it does not author them.
  *
  * @see docs/architecture.md
  * @see docs/techniques.md
@@ -44,8 +44,8 @@ export type HeroTechnique = {
   cloneBases: string[];
   /** Public View / app link — fill after publishing */
   viewLink: string | null;
-  /** Estimated USD per run; live mode overrides from API */
-  runCostUsd: number;
+  /** USD per run from FLORA retrieve; null until confirmed */
+  runCostUsd: number | null;
   /** Ready for live API runs once slug + View Link are set */
   status: 'placeholder' | 'ready';
   inputs: TechniqueInput[];
@@ -72,7 +72,7 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
       'https://app.flora.ai/techniques/video-scene-builder',
     ],
     viewLink: null,
-    runCostUsd: 0.12,
+    runCostUsd: null,
     status: 'placeholder',
     chainOrder: 1,
     inputs: [
@@ -80,14 +80,20 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
         id: 'brief',
         name: 'Creative brief',
         type: 'text',
-        description: 'Objective, audience, tone, constraints',
+        description: 'Objective, audience, tone, constraints — Field Kit custom input',
         required: true,
       },
       {
-        id: 'reference_image',
-        name: 'Reference image',
+        id: 'source_image',
+        name: 'Source image',
         type: 'imageUrl',
-        description: 'Optional visual direction',
+        description: 'dreamscape primary clone — optional visual direction',
+      },
+      {
+        id: 'character_image',
+        name: 'Character image',
+        type: 'imageUrl',
+        description: 'character-lock clone — optional identity lock',
       },
     ],
     outputs: [
@@ -120,31 +126,38 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
       'https://app.flora.ai/techniques/material-3d-logo-render-engine',
     ],
     viewLink: null,
-    runCostUsd: 0.18,
+    runCostUsd: null,
     status: 'placeholder',
     chainOrder: 2,
     inputs: [
       {
-        id: 'brand_direction',
-        name: 'Approved direction',
+        id: 'brand_name_info',
+        name: 'Brand name + info',
+        type: 'text',
+        description: 'illustration-branding-design primary clone',
+        required: true,
+      },
+      {
+        id: 'logo_or_brand_imagery',
+        name: 'Logo or brand imagery',
         type: 'imageUrl',
-        description: 'Selected frame or board from prior step',
+        description: 'Approved direction or logo from prior step',
         required: true,
       },
       {
         id: 'formats',
         name: 'Formats & audiences',
         type: 'text',
-        description: 'e.g. 1:1 social, 16:9 OOH, Gen Z / trade',
+        description: 'Field Kit custom — e.g. 1:1 social, 16:9 OOH',
         required: true,
       },
     ],
     outputs: [
-      {
-        id: 'variation_set',
-        name: 'Variation set',
-        type: 'imageUrl',
-      },
+      { id: 'image_composition', name: 'Image composition', type: 'imageUrl' },
+      { id: 'tshirt_design', name: 'T-shirt design', type: 'imageUrl' },
+      { id: 'display_case', name: 'Display case', type: 'imageUrl' },
+      { id: 'window_vinyl_design', name: 'Window vinyl design', type: 'imageUrl' },
+      { id: 'sign_design', name: 'Sign design', type: 'imageUrl' },
     ],
   },
   {
@@ -164,28 +177,29 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
       'https://app.flora.ai/techniques/material-3d-logo-render-engine',
     ],
     viewLink: null,
-    runCostUsd: 0.22,
+    runCostUsd: null,
     status: 'placeholder',
     chainOrder: 3,
     inputs: [
       {
-        id: 'artwork_or_object',
-        name: 'Artwork / object reference',
+        id: 'photo',
+        name: 'Photo',
         type: 'imageUrl',
+        description: 'wireframe primary clone — artwork / object / venue still',
         required: true,
       },
       {
         id: 'venue_notes',
         name: 'Venue & materials',
         type: 'text',
-        description: 'Space constraints, materials, lighting',
+        description: 'Field Kit custom — space constraints, materials, lighting',
         required: true,
       },
     ],
     outputs: [
       {
-        id: 'spatial_view',
-        name: 'Spatial view',
+        id: 'wireframe',
+        name: 'Wireframe',
         type: 'imageUrl',
       },
       {
@@ -203,4 +217,9 @@ export function getHeroTechnique(id: string): HeroTechnique | undefined {
 
 export function techniquesReadyForLive(): boolean {
   return HERO_TECHNIQUES.every((t) => t.status === 'ready' && t.slug);
+}
+
+/** Display helper — never invent a dollar amount. */
+export function formatUsd(amount: number | null): string {
+  return amount == null ? 'Pending retrieve' : `$${amount.toFixed(2)}`;
 }

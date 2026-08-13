@@ -61,6 +61,9 @@ Demo mode is the default when `FLORA_API_KEY` is missing.
 | `@flora-ai/flora` | Server-only SDK (`FLORA_API_KEY` never shipped to the client) |
 | FLORA cloud | Executes published Techniques by slug |
 | Technique Builder | Authors workflows inside FLORA — Field Kit does not build canvases |
+| FLORA MCP (Cursor) | Authoring-side inventory: list / retrieve Techniques via OAuth — not the app runtime |
+
+Cursor + FLORA MCP for authoring; this app for the client loop. Recruiter demo needs no MCP and no API key.
 
 Details: [`docs/architecture.md`](docs/architecture.md)
 
