@@ -1,5 +1,13 @@
 # FDE lane — creative delivery overlay
 
+```mermaid
+flowchart LR
+  brief[brief] --> techniques[techniques]
+  techniques --> run[run]
+  run --> review[review]
+  review --> casestudy[caseStudy]
+```
+
 This repo is the **Forward Deployed Creative** work sample: brief → techniques → run → review → shareable case. It is not an agent runtime and not affiliated with FLORA.
 
 Sister repos: [agentic-ops](https://github.com/moisestech/agentic-ops) · [agentic-evidence-pipeline](https://github.com/moisestech/agentic-evidence-pipeline) · [comfyui-output-provenance](https://github.com/moisestech/comfyui-output-provenance). Spine: [agentic-ops/docs/FDE-ROADMAP.md](https://github.com/moisestech/agentic-ops/blob/main/docs/FDE-ROADMAP.md).
