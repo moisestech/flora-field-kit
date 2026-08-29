@@ -106,6 +106,7 @@ Mapping: [`docs/application.md`](docs/application.md)
 |-----|---------|
 | [`docs/architecture.md`](docs/architecture.md) | Modes, authorship vs API, case study |
 | [`docs/application.md`](docs/application.md) | FDC fit + status gates |
+| [`docs/fde-roadmap.md`](docs/fde-roadmap.md) | FDE portfolio lane + next tasks |
 | [`docs/techniques.md`](docs/techniques.md) | Clone intake, ranking, slug wiring |
 | [`docs/media.md`](docs/media.md) | **Images & diagrams inventory** for README / hiring packet |
 
