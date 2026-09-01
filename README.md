@@ -1,5 +1,7 @@
 # FLORA Field Kit
 
+![FLORA Field Kit — Brief → System](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230102/jobs/flora-toolkit/flora-field-kit-readme-cover_m8jnig.png)
+
 **A coded client-workflow console that turns a creative brief into a reusable FLORA production system.**
 
 > Turning creative briefs into reusable AI production systems.
@@ -12,7 +14,7 @@
 
 This is an independent **Forward Deployed Creative** work sample — not a portfolio site and **not affiliated with or endorsed by FLORA**.
 
-![Workflow loop diagram — brief through case study](docs/assets/workflow-loop.svg)
+![Field Kit hero — brief to system with a human review gate](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230105/jobs/flora-toolkit/flora-field-kit-readme-hero-3d_avn2my.png)
 
 ## What this proves (10 seconds)
 
@@ -25,6 +27,10 @@ Recruiters and hiring managers should open the **live demo** (no API key) and wa
 5. **Report** — shareable case-study URL  
 
 That loop is the miniature FDC job: understand a customer brief, adapt Techniques, run them programmatically, refine with the team, leave a reusable system.
+
+![Workflow loop — brief through case study](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230106/jobs/flora-toolkit/flora-field-kit-workflow-loop-3d_idi3l2.png)
+
+![Human review gate — select what enters the next Technique](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230106/jobs/flora-toolkit/flora-field-kit-human-review-3d_wlqzbr.png)
 
 ### Console walkthrough (demo mode)
 
@@ -48,11 +54,11 @@ Or use production: [flora-field-kit.moises.tech](https://flora-field-kit.moises.
 
 Demo mode is the default when `FLORA_API_KEY` is missing.
 
-![Demo vs live modes diagram](docs/assets/demo-vs-live.svg)
+![Demo vs live — fixtures on the left, API key path on the right](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230106/jobs/flora-toolkit/flora-field-kit-demo-vs-live-3d_goaqr6.png)
 
 ## Architecture (short)
 
-![Architecture layers diagram](docs/assets/architecture-layers.svg)
+![Architecture stack — browser, API, SDK, FLORA](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230103/jobs/flora-toolkit/flora-field-kit-architecture-stack-3d_khfxnp.png)
 
 | Layer | Role |
 |-------|------|
@@ -69,7 +75,7 @@ Details: [`docs/architecture.md`](docs/architecture.md)
 
 ## Three hero Techniques
 
-![Hero Techniques chain diagram](docs/assets/hero-chain.svg)
+![Hero Technique chain — narrative, campaign, physical](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230107/jobs/flora-toolkit/flora-field-kit-technique-chain-3d_ukczqx.png)
 
 | Technique | Clone bases (customize these) | Status |
 |-----------|-------------------------------|--------|
@@ -111,7 +117,7 @@ Mapping: [`docs/application.md`](docs/application.md)
 
 ## Media status
 
-S1–S5 screenshots and diagrams D1–D4 are embedded above. Full inventory: [`docs/media.md`](docs/media.md).
+3D stills (cover, hero, workflow, architecture, demo vs live, technique chain, human review) and the 1200×630 social preview live on Cloudinary (`jobs/flora-toolkit`) and are embedded above. SVG fallbacks remain under [`docs/assets/`](docs/assets/). Inventory: [`docs/media.md`](docs/media.md).
 
 | Priority | Asset | Status |
 |----------|-------|--------|

@@ -53,7 +53,7 @@ Connect: Cursor Settings → MCP → `flora` → Connect (same account as [app.f
 
 ## Diagrams
 
-SVG architecture and workflow diagrams for the README live in [`assets/`](assets/). Full media checklist: [`media.md`](media.md).
+SVG architecture and workflow diagrams live in [`assets/`](assets/). Recruiter 3D stills (README + Open Graph) are on Cloudinary — see [`media.md`](media.md) and [`lib/media.ts`](../lib/media.ts).
 
 ## Boundary
 

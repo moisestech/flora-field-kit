@@ -1,6 +1,8 @@
 # FLORA Field Kit — media & diagrams inventory
 
-Assets the **README** and recruiter walkthrough need. Status: `needed` = not in repo yet; `placeholder` = SVG diagram shipped; `ready` = final asset.
+Assets the **README**, Open Graph, and recruiter walkthrough need. Status: `needed` = not in repo yet; `placeholder` = SVG fallback; `ready` = final asset.
+
+3D stills and the social preview live on Cloudinary folder `jobs/flora-toolkit` (URLs in [`lib/media.ts`](../lib/media.ts)). SVG fallbacks stay in this repo under [`assets/`](assets/).
 
 Concept-study stills for the **moises.tech dossier** live separately under  
 `moises/public/images/opportunities/flora-forward-deployed-creative/`  
@@ -8,14 +10,18 @@ and must stay labeled **Concept Study** until real FLORA / Field Kit screenshots
 
 ---
 
-## A. Diagrams (ship in this repo)
+## A. Diagrams (README)
 
-| ID | Asset path | Size / ratio | Used in | What it shows | Status |
-|----|------------|--------------|---------|---------------|--------|
-| D1 | [`docs/assets/workflow-loop.svg`](assets/workflow-loop.svg) | ~1200×420 | README hero | Brief → Techniques → Run → Review → Chain → Case study | **placeholder** |
-| D2 | [`docs/assets/architecture-layers.svg`](assets/architecture-layers.svg) | ~1200×520 | README / architecture | Browser UI · Next API · `@flora-ai/flora` · FLORA · Technique Builder | **placeholder** |
-| D3 | [`docs/assets/demo-vs-live.svg`](assets/demo-vs-live.svg) | ~1000×360 | README modes | Demo fixtures vs live API key path | **placeholder** |
-| D4 | [`docs/assets/hero-chain.svg`](assets/hero-chain.svg) | ~1200×300 | README Techniques | Three heroes in order with clone-base labels | **placeholder** |
+| ID | Asset | Size | Used in | What it shows | Status |
+|----|-------|------|---------|---------------|--------|
+| D0 | [readme-cover](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230102/jobs/flora-toolkit/flora-field-kit-readme-cover_m8jnig.png) | 2400×900 | README banner | FLORA Field Kit · Brief → System | **ready** |
+| D0b | [readme-hero-3d](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230105/jobs/flora-toolkit/flora-field-kit-readme-hero-3d_avn2my.png) | 1672×941 | README intro | Pipeline with human review gate | **ready** |
+| D1 | [workflow-loop-3d](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230106/jobs/flora-toolkit/flora-field-kit-workflow-loop-3d_idi3l2.png) · SVG fallback [`workflow-loop.svg`](assets/workflow-loop.svg) | 1672×941 | README | Brief → Techniques → Run → Review → Chain → Case study | **ready** |
+| D2 | [architecture-stack-3d](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230103/jobs/flora-toolkit/flora-field-kit-architecture-stack-3d_khfxnp.png) · SVG fallback [`architecture-layers.svg`](assets/architecture-layers.svg) | 1672×941 | README / architecture | Browser · API · SDK · FLORA | **ready** |
+| D3 | [demo-vs-live-3d](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230106/jobs/flora-toolkit/flora-field-kit-demo-vs-live-3d_goaqr6.png) · SVG fallback [`demo-vs-live.svg`](assets/demo-vs-live.svg) | 1672×941 | README modes | Demo fixtures vs live API key path | **ready** |
+| D4 | [technique-chain-3d](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230107/jobs/flora-toolkit/flora-field-kit-technique-chain-3d_ukczqx.png) · SVG fallback [`hero-chain.svg`](assets/hero-chain.svg) | 1672×941 | README Techniques | Three heroes in chain order | **ready** |
+| D4b | [human-review-3d](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230106/jobs/flora-toolkit/flora-field-kit-human-review-3d_wlqzbr.png) | 1672×941 | README review | Human selection gate in the loop | **ready** |
+| OG | [social-preview](https://res.cloudinary.com/dck5rzi4h/image/upload/v1788230103/jobs/flora-toolkit/flora-field-kit-social-preview_aulfq2.png) | 1200×630 | Open Graph / Twitter | Link preview for the live demo | **ready** |
 | D5 | `docs/assets/sequence-brief-to-case.svg` | ~1000×700 | docs/architecture | Sequence: recruiter click path through 5 steps | **needed** |
 
 ---
@@ -77,16 +83,17 @@ Replace with verified screenshots when Techniques and Field Kit live runs exist.
 
 ## E. README embedding rules
 
-1. Prefer SVG diagrams (D1–D3) checked into git — crisp on GitHub dark/light.
+1. Prefer the Cloudinary 3D stills in the README (GitHub renders remote HTTPS). SVG fallbacks stay in git for offline / print.
 2. Screenshots (S1–S5) go under `docs/assets/screenshots/` and are linked from README once captured.
-3. Every concept / placeholder visual must say **Concept Study** or **Diagram** in the alt text / caption until replaced.
-4. Never commit `.env.local`, key screenshots, or billed run dashboards that expose account identity beyond what’s intentional.
+3. Open Graph uses the 1200×630 social preview via [`lib/media.ts`](../lib/media.ts) — do not invent a local duplicate unless Cloudinary is unavailable.
+4. Every concept / placeholder visual must say **Concept Study** or **Diagram** in the alt text / caption until replaced.
+5. Never commit `.env.local`, key screenshots, or billed run dashboards that expose account identity beyond what’s intentional.
 
 ---
 
 ## Priority order
 
-1. **D1–D4** — SVG placeholders shipped  
+1. **D0–D4b + OG** — 3D stills + social preview ready  
 2. **S1–S5** — ready (embedded in README)  
 3. **T1–T3** — unblock with Technique publish (P0)  
 4. **D5** — optional sequence diagram
