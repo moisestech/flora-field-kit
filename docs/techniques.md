@@ -40,9 +40,11 @@ Docs: [Technique Builder](https://docs.flora.ai/nodes/technique-builder)
 
 ## Your next steps in FLORA
 
+Exact Builder script: [`technique-builder-miami.md`](technique-builder-miami.md). Same `DEMO_BRIEF` for all three.
+
 1. ~~Clone ~6–10 Techniques~~ — done (9 listed above).
 2. ~~Classify and rank~~ — done in this file.
-3. **Customize the strongest three** (customer intake, altered prompt/branch logic, human review gate, purpose-built outputs) via Technique Builder.
+3. **Customize the strongest three** in Technique Builder (not more Field Kit UI). MCP retrieve is still `403 paid_plan_required` as of 2026-08-31.
 4. Publish View Links that are **public or externally accessible unlisted** — then test each URL in an incognito window. Private/workspace-only links are not acceptable for the application packet.
 5. After paid API access: MCP-retrieve schemas/IDs (no billed runs), then set `slug`, `viewLink`, `runCostUsd`, and `status: 'ready'` in `lib/techniques.ts`.
 

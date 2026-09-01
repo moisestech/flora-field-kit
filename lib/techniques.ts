@@ -65,7 +65,7 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
     creativeReasoning:
       'Scaffold IP and pitch worlds the way Lore Machine broke narrative into controllable multimedia steps — language first, then visual system, then frames.',
     modifications:
-      'Planned: tighter character/environment branches, museum-legible tone locks, cost-aware frame counts, clearer I/O naming for Field Kit forms.',
+      'Miami teaser: exhibition_brief + visual_direction intake; language / board / 3-beat storyboard branches; skip character-lock unless a figure is supplied; human gate select_approved_direction before campaign.',
     cloneBases: [
       'https://app.flora.ai/techniques/dreamscape',
       'https://app.flora.ai/techniques/character-lock',
@@ -120,7 +120,7 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
     creativeReasoning:
       'Preserve creative intent while packing formats — campaign systems customers can reuse, not disposable moodboards.',
     modifications:
-      'Planned: brand-safe variation constraints, channel presets (1:1 / 16:9 / OOH), human review gates before the next chain step.',
+      'Miami teaser: approved_direction + channel_pack; drop merch clone outputs; four channel stills (1:1, newsletter, press, lobby 16:9); human gate favorites six and marks press vs lobby.',
     cloneBases: [
       'https://app.flora.ai/techniques/illustration-branding-design',
       'https://app.flora.ai/techniques/material-3d-logo-render-engine',
@@ -171,7 +171,7 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
     creativeReasoning:
       'Installation previz from Digilab / Bakehouse practice — materials, lighting, and spatial views before fabrication spend.',
     modifications:
-      'Planned: venue constraint checklist, production annotation layer, lobby-screen 16:9 export for stakeholder review.',
+      'Miami teaser: venue_photo + approved_campaign_still + venue_notes; visitor-approach previz; production board (build vs reuse); lobby 16:9; human gate fabrication_needed.',
     cloneBases: [
       'https://app.flora.ai/techniques/wireframe',
       'https://app.flora.ai/techniques/material-3d-logo-render-engine',
