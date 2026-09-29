@@ -1,0 +1,30 @@
+---
+description: FLORA MCP vs Field Kit API — inventory only unless the user asks to run
+alwaysApply: true
+---
+
+# FLORA MCP in this repo
+
+FLORA MCP (`search_docs`, `execute` at `https://agents.flora.ai/mcp`) is the **Cursor-side** FLORA console. Field Kit is the **product** console.
+
+| Surface | Job | Auth |
+|---------|-----|------|
+| Technique Builder | Customize / publish heroes | FLORA app |
+| FLORA MCP | List, retrieve schemas, optional ad-hoc runs | OAuth in Cursor |
+| Field Kit `app/api/flora/*` | Recruiter demo + live programmatic runs | `FLORA_API_KEY` in `.env.local` |
+
+## Do
+
+- Prefer MCP `execute` for `client.techniques.list` / `retrieve` / `workspaces.list` when wiring [`lib/techniques.ts`](lib/techniques.ts).
+- Call `search_docs` first if SDK method shapes are unclear.
+- Keep Field Kit runtime on `@flora-ai/flora` in [`lib/flora.ts`](lib/flora.ts) — never route the Next.js app through MCP.
+- If `execute` returns `403 paid_plan_required`, stop retrying. Inventory from public Technique pages in [`lib/clone-bases.ts`](lib/clone-bases.ts) until the workspace has API access.
+
+## Do not
+
+- Put `FLORA_API_KEY` in chat, MCP config, commits, or screenshots.
+- Call `client.techniques.runs.create` or `client.generations.create` unless the user explicitly asked (billed).
+- Author canvases from Cursor as the application artifact — that stays in Technique Builder.
+- Replace demo mode with MCP. Recruiters use the live demo with no key.
+
+After Technique Builder publish: retrieve the three heroes, then set `slug`, `viewLink`, and `status: 'ready'` in `lib/techniques.ts`.

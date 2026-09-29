@@ -25,7 +25,7 @@ export type DemoRunStep = {
   techniqueId: string;
   status: 'pending' | 'running' | 'completed' | 'failed';
   progress: number;
-  chargedCost: number;
+  chargedCost: number | null;
   outputs: DemoOutput[];
 };
 

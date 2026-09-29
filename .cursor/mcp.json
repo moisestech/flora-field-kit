@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "flora": {
+      "url": "https://agents.flora.ai/mcp"
+    }
+  }
+}

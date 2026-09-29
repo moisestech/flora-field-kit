@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import { buildDemoCaseStudy } from '@/lib/demo/fixtures';
-import { HERO_TECHNIQUES } from '@/lib/techniques';
+import { HERO_TECHNIQUES, formatUsd } from '@/lib/techniques';
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -65,7 +65,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             return (
               <article key={step.techniqueId} className="technique-card">
                 <h3>{technique?.name ?? step.techniqueId}</h3>
-                <p>Status: {step.status} · Charged ${step.chargedCost.toFixed(2)}</p>
+                <p>Status: {step.status} · Charged {formatUsd(step.chargedCost)}</p>
                 <ul style={{ margin: 0, paddingLeft: '1.1rem', color: 'var(--ink-muted)' }}>
                   {step.outputs.map((o) => (
                     <li key={o.outputId}>

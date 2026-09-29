@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">FLORA Field Kit architecture layers</title>
+  <desc id="desc">Browser UI, Next.js API routes, Flora SDK, FLORA cloud, Technique Builder</desc>
+  <rect width="1200" height="520" fill="#0c1015"/>
+  <text x="48" y="48" fill="#3dd6c6" font-family="ui-monospace, Menlo, monospace" font-size="13" letter-spacing="2">ARCHITECTURE</text>
+  <text x="48" y="84" fill="#e8e2d6" font-family="ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="600">Layers  key never reaches the browser</text>
+
+  <g font-family="ui-sans-serif, system-ui, sans-serif">
+    <rect x="48" y="120" width="1104" height="64" fill="#1e2834" stroke="#3dd6c6" stroke-opacity="0.4"/>
+    <text x="72" y="148" fill="#3dd6c6" font-size="12" font-family="ui-monospace, Menlo, monospace">01</text>
+    <text x="110" y="150" fill="#e8e2d6" font-size="18" font-weight="600">Browser  Field Kit console</text>
+    <text x="110" y="172" fill="#9aa3ad" font-size="13">Brief · Technique cards · schema forms · review · case study UI</text>
+
+    <rect x="48" y="200" width="1104" height="64" fill="#1e2834" stroke="#9aa3ad" stroke-opacity="0.3"/>
+    <text x="72" y="228" fill="#3dd6c6" font-size="12" font-family="ui-monospace, Menlo, monospace">02</text>
+    <text x="110" y="230" fill="#e8e2d6" font-size="18" font-weight="600">Next.js API  app/api/flora/*</text>
+    <text x="110" y="252" fill="#9aa3ad" font-size="13">mode · techniques · runs · status  server-only</text>
+
+    <rect x="48" y="280" width="1104" height="64" fill="#1e2834" stroke="#9aa3ad" stroke-opacity="0.3"/>
+    <text x="72" y="308" fill="#3dd6c6" font-size="12" font-family="ui-monospace, Menlo, monospace">03</text>
+    <text x="110" y="310" fill="#e8e2d6" font-size="18" font-weight="600">@flora-ai/flora SDK</text>
+    <text x="110" y="332" fill="#9aa3ad" font-size="13">FLORA_API_KEY from env · list / retrieve / async run / poll</text>
+
+    <rect x="48" y="360" width="540" height="88" fill="#161d26" stroke="#3dd6c6" stroke-opacity="0.35"/>
+    <text x="72" y="396" fill="#e8e2d6" font-size="16" font-weight="600">FLORA cloud</text>
+    <text x="72" y="422" fill="#9aa3ad" font-size="13">Runs Techniques by slug · costs · outputs</text>
+
+    <rect x="612" y="360" width="540" height="88" fill="#161d26" stroke="#d4a017" stroke-opacity="0.45"/>
+    <text x="636" y="396" fill="#e8e2d6" font-size="16" font-weight="600">Technique Builder (in FLORA)</text>
+    <text x="636" y="422" fill="#9aa3ad" font-size="13">Authors workflows · defines I/O · publishes View Links</text>
+  </g>
+  <text x="48" y="490" fill="#9aa3ad" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Diagram  Field Kit runs Techniques; it does not author them.</text>
+</svg>
