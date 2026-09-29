@@ -8,6 +8,7 @@
  *
  * @see docs/architecture.md
  * @see docs/techniques.md
+ * @see docs/technique-builder-miami.md
  */
 
 export type TechniqueInputType = 'text' | 'imageUrl' | 'videoUrl';
@@ -59,11 +60,11 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
     slug: null,
     name: 'Narrative World Builder',
     description:
-      'Story breakdown, visual language, characters, environments, and storyboard frames from a creative brief.',
-    bestUseCase: 'IP development, pitch worlds, series / campaign narrative scaffolding',
+      'Turns an exhibition brief into curator-facing story language, an approved visual spine, and a three-beat teaser storyboard.',
+    bestUseCase: 'IP development, pitch worlds, exhibitions, narrative campaign scaffolding',
     backgroundConnection: 'Lore Machine — generative storytelling systems',
     creativeReasoning:
-      'Scaffold IP and pitch worlds the way Lore Machine broke narrative into controllable multimedia steps — language first, then visual system, then frames.',
+      'Scaffold worlds the way Lore Machine broke narrative into controllable multimedia steps — language first, then visual system, then frames.',
     modifications:
       'Miami teaser: exhibition_brief + visual_direction intake; language / board / 3-beat storyboard branches; skip character-lock unless a figure is supplied; human gate select_approved_direction before campaign.',
     cloneBases: [
@@ -77,35 +78,50 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
     chainOrder: 1,
     inputs: [
       {
-        id: 'brief',
-        name: 'Creative brief',
+        id: 'exhibition_brief',
+        name: 'Exhibition brief',
         type: 'text',
-        description: 'Objective, audience, tone, constraints — Field Kit custom input',
+        description: 'Objective, audience, and constraints for the Miami exhibition teaser',
+        required: true,
+      },
+      {
+        id: 'visual_direction',
+        name: 'Visual direction',
+        type: 'text',
+        description: 'Institutional light, ritual interface, tactile materials; no startup gloss',
         required: true,
       },
       {
         id: 'source_image',
         name: 'Source image',
         type: 'imageUrl',
-        description: 'dreamscape primary clone — optional visual direction',
+        description: 'Optional Digilab, Bakehouse, or other visual reference',
       },
       {
         id: 'character_image',
         name: 'Character image',
         type: 'imageUrl',
-        description: 'character-lock clone — optional identity lock',
+        description: 'Optional identity-lock branch; leave empty for artwork-led briefs',
       },
     ],
     outputs: [
       {
-        id: 'visual_language',
-        name: 'Visual language board',
-        type: 'imageUrl',
-      },
-      {
         id: 'story_breakdown',
         name: 'Story breakdown',
         type: 'text',
+        description: 'Curator-facing world bible and three-beat narrative logic',
+      },
+      {
+        id: 'visual_language',
+        name: 'Visual language board',
+        type: 'imageUrl',
+        description: 'Human-approved campaign spine for the next Technique',
+      },
+      {
+        id: 'storyboard_frames',
+        name: 'Storyboard frames',
+        type: 'imageUrl',
+        description: 'Three-beat teaser: approach, encounter, afterimage',
       },
     ],
   },
@@ -114,13 +130,13 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
     slug: null,
     name: 'Campaign Variation System',
     description:
-      'Controlled brand variations across formats and audiences from an approved visual direction.',
+      'Preserves an approved visual direction while adapting it into controlled channel-specific campaign outputs.',
     bestUseCase: 'Campaign systems, format packs, audience-specific adaptations',
     backgroundConnection: 'Creative direction and AI production pipelines',
     creativeReasoning:
-      'Preserve creative intent while packing formats — campaign systems customers can reuse, not disposable moodboards.',
+      'Preserve creative intent while packing formats — reusable campaign systems rather than disposable moodboards.',
     modifications:
-      'Miami teaser: approved_direction + channel_pack; drop merch clone outputs; four channel stills (1:1, newsletter, press, lobby 16:9); human gate favorites six and marks press vs lobby.',
+      'Miami teaser: approved_direction + channel_pack + audience_note; remove merch clone outputs; four channel stills (1:1, newsletter, press, lobby 16:9); human gate marks press vs lobby selections.',
     cloneBases: [
       'https://app.flora.ai/techniques/illustration-branding-design',
       'https://app.flora.ai/techniques/material-3d-logo-render-engine',
@@ -131,33 +147,38 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
     chainOrder: 2,
     inputs: [
       {
-        id: 'brand_name_info',
-        name: 'Brand name + info',
-        type: 'text',
-        description: 'illustration-branding-design primary clone',
-        required: true,
-      },
-      {
-        id: 'logo_or_brand_imagery',
-        name: 'Logo or brand imagery',
+        id: 'approved_direction',
+        name: 'Approved direction',
         type: 'imageUrl',
-        description: 'Approved direction or logo from prior step',
+        description: 'Selected visual language board from Narrative World Builder',
         required: true,
       },
       {
-        id: 'formats',
-        name: 'Formats & audiences',
+        id: 'channel_pack',
+        name: 'Channel pack',
         type: 'text',
-        description: 'Field Kit custom — e.g. 1:1 social, 16:9 OOH',
+        description: '1:1 Instagram · newsletter header · press PDF · lobby 16:9',
+        required: true,
+      },
+      {
+        id: 'audience_note',
+        name: 'Audience note',
+        type: 'text',
+        description: 'Curators, residency panels, and culturally fluent collectors',
         required: true,
       },
     ],
     outputs: [
-      { id: 'image_composition', name: 'Image composition', type: 'imageUrl' },
-      { id: 'tshirt_design', name: 'T-shirt design', type: 'imageUrl' },
-      { id: 'display_case', name: 'Display case', type: 'imageUrl' },
-      { id: 'window_vinyl_design', name: 'Window vinyl design', type: 'imageUrl' },
-      { id: 'sign_design', name: 'Sign design', type: 'imageUrl' },
+      { id: 'variation_1x1', name: 'Instagram 1:1', type: 'imageUrl' },
+      { id: 'variation_newsletter', name: 'Newsletter header', type: 'imageUrl' },
+      { id: 'variation_press', name: 'Press PDF still', type: 'imageUrl' },
+      { id: 'variation_lobby_16x9', name: 'Lobby screen 16:9', type: 'imageUrl' },
+      {
+        id: 'variation_set_notes',
+        name: 'Variation set notes',
+        type: 'text',
+        description: 'Which outputs were approved for press and lobby, and why',
+      },
     ],
   },
   {
@@ -165,13 +186,13 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
     slug: null,
     name: 'Physical Experience Previsualizer',
     description:
-      'Artwork/object, venue, materials, spatial views, motion test, and production board for installation work.',
+      'Places the approved teaser into a real venue and packages spatial, material, and production decisions before fabrication spend.',
     bestUseCase: 'Exhibition and installation previsualization',
     backgroundConnection: 'Oolite, Bakehouse, and installation practice',
     creativeReasoning:
-      'Installation previz from Digilab / Bakehouse practice — materials, lighting, and spatial views before fabrication spend.',
+      'Installation previz from Digilab / Bakehouse practice — materials, lighting, visitor approach, and build-vs-reuse decisions before fabrication spend.',
     modifications:
-      'Miami teaser: venue_photo + approved_campaign_still + venue_notes; visitor-approach previz; production board (build vs reuse); lobby 16:9; human gate fabrication_needed.',
+      'Miami teaser: venue_photo + approved_campaign_still + venue_notes + install_constraints; visitor-approach previz; production board (build vs reuse); lobby 16:9; human gate fabrication_needed.',
     cloneBases: [
       'https://app.flora.ai/techniques/wireframe',
       'https://app.flora.ai/techniques/material-3d-logo-render-engine',
@@ -182,30 +203,52 @@ export const HERO_TECHNIQUES: HeroTechnique[] = [
     chainOrder: 3,
     inputs: [
       {
-        id: 'photo',
-        name: 'Photo',
+        id: 'venue_photo',
+        name: 'Venue photo',
         type: 'imageUrl',
-        description: 'wireframe primary clone — artwork / object / venue still',
+        description: 'Digilab, Bakehouse, lobby, or other real venue still',
+        required: true,
+      },
+      {
+        id: 'approved_campaign_still',
+        name: 'Approved campaign still',
+        type: 'imageUrl',
+        description: 'Selected campaign image from the prior human review gate',
         required: true,
       },
       {
         id: 'venue_notes',
-        name: 'Venue & materials',
+        name: 'Venue notes',
         type: 'text',
-        description: 'Field Kit custom — space constraints, materials, lighting',
+        description: 'Space, throw, power, dwell time, materials, lighting',
+        required: true,
+      },
+      {
+        id: 'install_constraints',
+        name: 'Installation constraints',
+        type: 'text',
+        description: 'Keep fabrication spend honest; do not invent unavailable dimensions or infrastructure',
         required: true,
       },
     ],
     outputs: [
       {
-        id: 'wireframe',
-        name: 'Wireframe',
+        id: 'spatial_view',
+        name: 'Spatial view',
         type: 'imageUrl',
+        description: 'Visitor-approach previsualization in the actual venue',
       },
       {
         id: 'production_board',
         name: 'Production board',
         type: 'imageUrl',
+        description: 'Materials, lighting, and what is built versus reused',
+      },
+      {
+        id: 'lobby_screen_16x9',
+        name: 'Lobby screen 16:9',
+        type: 'imageUrl',
+        description: 'Approved campaign still shown as the actual in-room screen experience',
       },
     ],
   },
